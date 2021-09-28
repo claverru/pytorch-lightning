@@ -494,6 +494,9 @@ class OptimizerLoop(Loop):
 
         # clip gradients
         self.trainer.lightning_module.configure_gradient_clipping(
-            optimizer, opt_idx, self.trainer.gradient_clip_val, self.trainer.gradient_clip_algorithm
+            optimizer,
+            opt_idx,
+            gradient_clip_val=self.trainer.gradient_clip_val,
+            gradient_clip_algorithm=self.trainer.gradient_clip_algorithm,
         )
         return grad_norm_dict
